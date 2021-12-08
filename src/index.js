@@ -10,10 +10,10 @@ function AppTwo() {
 }
 
 ReactDOM.render(
-  // Can use React.Fragment tags in place of div tags
-  <React.Fragment>
+  // Can use <></> tags in place of div tags
+  <>
     <App />
     <AppTwo />
-  </React.Fragment>,
+  </>,
   document.getElementById('root')
 );
