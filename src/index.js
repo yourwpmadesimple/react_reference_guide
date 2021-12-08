@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 
 ReactDOM.render(
-  React.createElement('h1', null, "Heyyyy Wayne"),
+  React.createElement('h1',
+    { style: { color: "skyblue" } },
+    "Heyyyy Wayne"),
   document.getElementById('root')
 );
