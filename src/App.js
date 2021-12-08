@@ -7,7 +7,7 @@ import reacBanner from './react.jpg'
 function Header(props) { // the props object holds all the properties for the component
   // console.log(props)
   return (
-    <header className="text-4xl mb-10">
+    <header className="m-10">
 
       <h1>{ props.name }'s Code Kitchen</h1>
     </header>
