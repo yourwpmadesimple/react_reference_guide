@@ -20,7 +20,13 @@ const App = ({ login }) => {
 
   if (data) {
     console.log(data)
-    return <div>{ JSON.stringify(data) }</div>
+    return (
+      <div>
+        <h1>{ data.name }</h1>
+        <p>{ data.location } </p>
+        <img alt={ data.company } src={ data.avatar_url } />
+      </div>
+    )
   }
 
   return (
