@@ -4,9 +4,14 @@ import './App.css';
 
 
 const App = ({ login }) => {
-  const [ data, setData ] = useState(null)
+  const [ data, setData ] = useState(null);
+  const [ loading, setLoading ] = useState(false);
+  const [ error, setError ] = useState(null);
 
   useEffect(() => {
+    if (!login) return;
+    setLoading(true)
+
     const url = `https://api.github.com/users/${login}`
     fetch(`${url}`, {
       method: "GET",
@@ -16,24 +21,25 @@ const App = ({ login }) => {
     })
       .then(res => res.json())
       .then(setData)
-  }, [])
+      .then(() => setLoading(false))
+      .catch(setError)
+  }, [ login ])
+
+  if (loading) return <h1 className="text-center">Loading...</h1>
+  if (error)
+    return <pre>{ JSON.stringify(error, null, 2) } </pre>;
+  if (!data) return null;
 
   if (data) {
-    console.log(data)
+    console.log('Returned Object: ', data)
     return (
-      <div>
+      <div className="App">
         <h1>{ data.name }</h1>
         <p>{ data.location } </p>
-        <img alt={ data.company } src={ data.avatar_url } />
+        <img className="inline-block" alt={ data.company } src={ data.avatar_url } />
       </div>
     )
   }
-
-  return (
-    <div className="App">
-      <h1>Fetching Data with Hooks</h1>
-    </div>
-  )
+  return <div>No user Available</div>
 }
-
 export default App;
