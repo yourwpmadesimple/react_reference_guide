@@ -4,19 +4,21 @@ import './App.css';
 
 
 const App = () => {
-  const [ emotion, setEmotion ] = useState('Happy')
 
-  useEffect(() => {
-    console.log(`It's ${emotional} around here`)
-  })
 
   return (
     <>
-      <h1>The current emotion is { emotion } ? </h1>
+      <h1>The current emotion is { emotion } and { secondary }  </h1>
+      <button
+        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+        onClick={ () => setSecondary('Crabby') }>
+        Make Crabby
+      </button>
+
       <button
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
         onClick={ () => setEmotion('Happy') }>
-        Happy
+        Make Happy
       </button>
       <button
         className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
