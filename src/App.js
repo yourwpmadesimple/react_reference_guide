@@ -11,10 +11,10 @@ function RegularComponent() {
 }
 
 
-const App = (props) => {
+const App = ({ authorized }) => {
   return (
     <>
-      { props.authorized ? <SecretComponent /> : <RegularComponent /> }
+      { authorized ? <SecretComponent /> : <RegularComponent /> }
     </>
   )
 }
