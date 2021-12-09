@@ -1,14 +1,13 @@
-import { React, useState, useEffect } from 'react'
+import React, { useReducer } from 'react'
 import './index.css';
 import './App.css';
 
 
 const App = () => {
-  const [ checked, setChecked ] = useState(false)
-
-  const toggle = () => {
-    setChecked(checked => !checked)
-  }
+  const [ checked, toggle ] = useReducer(
+    checked => !checked,
+    false
+  )
 
   return (
     <>
