@@ -6,12 +6,16 @@ import './App.css';
 const App = () => {
   const [ checked, setChecked ] = useState(false)
 
+  const toggle = () => {
+    setChecked(checked => !checked)
+  }
+
   return (
     <>
       <input
         type="checkbox"
         value={ checked }
-        onChange={ () => setChecked(checked => !checked) } />
+        onChange={ toggle } />
       <p>{ checked ? "Checked" : "Not Checked" }</p>
     </>
   )
